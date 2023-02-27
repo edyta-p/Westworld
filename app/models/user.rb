@@ -7,4 +7,6 @@ class User < ApplicationRecord
 
   has_many :personnages
   has_many :reservations
+
+
 end
