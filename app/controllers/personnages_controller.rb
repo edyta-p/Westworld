@@ -8,6 +8,7 @@ class PersonnagesController < ApplicationController
 
   def show
     @personnage = Personnage.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new

@@ -1,7 +1,16 @@
 <h1>Personnages#show</h1>
+<<<<<<< HEAD
+
+
+<%= simple_form_for [@personnage, @reservation] do |f| %>
+  <%= f.input :date %>
+  <%= f.submit %>
+<% end %>
+=======
 <p>Find me in app/views/personnages/show.html.erb</p>
 
 
 <%= @personnage.name %>
 
 <%= link_to "Delete personnage", personnage_path(@personnage), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+>>>>>>> master

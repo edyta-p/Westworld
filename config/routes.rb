@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
+<<<<<<< HEAD
+  get '/users/:id', to: "users#show", as: 'user'
+
+  resources :personnages, only: [:search, :show, :new, :create, :update, :destroy] do
+    resources :reservations, only: [:create, :new]
+=======
   get '/users/:id', to: "users#show", as: :user_show
 
   resources :personnages, only: %i[new create show edit update destroy] do
@@ -10,6 +16,7 @@ Rails.application.routes.draw do
     end
 
     resources :reservations, only: [:create]
+>>>>>>> master
   end
   resources :reservations, only: [:destroy]
 end
