@@ -1,2 +1,7 @@
 <h1>Personnages#show</h1>
 <p>Find me in app/views/personnages/show.html.erb</p>
+
+
+<%= @personnage.name %>
+
+<%= link_to "Delete personnage", personnage_path(@personnage), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
