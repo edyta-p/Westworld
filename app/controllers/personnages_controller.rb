@@ -1,9 +1,8 @@
 class PersonnagesController < ApplicationController
-  before_action :set_user, only: [:create]
-  before_action :set_personnage, only: [:show, :update, :destroy]
+  before_action :set_personnage, only: %i[show update destroy]
 
   def search
-
+    @personnages = Personnage.all.sample(5)
   end
 
   def show
@@ -15,6 +14,7 @@ class PersonnagesController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
     @personnage = Personnage.new(personnage_params)
     @personnage.user = @user
 
@@ -38,10 +38,6 @@ class PersonnagesController < ApplicationController
   # à voir current_user
   def set_personnage
     @personnage = Personnage.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find(params[:user_id])
   end
 
   def personnage_params
