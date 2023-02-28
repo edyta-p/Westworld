@@ -1,0 +1,15 @@
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: $white;
+}
+
+.btn {
+color: $dark-2;
+background-color: $light-blue;
+}
+.btn:hover {
+  color: $dark-2;
+  background-color: $white;
+}
