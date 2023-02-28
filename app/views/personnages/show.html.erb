@@ -1,4 +1,7 @@
 <h1>Personnages#show</h1>
 
 
-<%= link_to 'nouvelle resevation',  user_path(current_user)%>
+<%= simple_form_for [@personnage, @reservation] do |f| %>
+  <%= f.input :date %>
+  <%= f.submit %>
+<% end %>
