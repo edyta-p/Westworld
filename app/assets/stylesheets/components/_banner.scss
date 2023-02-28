@@ -1,0 +1,8 @@
+.banner {
+  background-color: $dark-2;
+  height: 50vh;
+  background-image: asset-url("background_2.jpg");
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+}
