@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get '/users/:id', to: "users#show"
+  get '/personnages/search', to: "personnages#search"
 
-  resources :personnages, only: [:new, :create, :show, :update, :search, :destroy] do
+  resources :personnages, only: %i[new create show update destroy] do
     resources :reservations, only: [:create]
   end
   resources :reservations, only: [:destroy]
