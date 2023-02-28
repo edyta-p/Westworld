@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: "users#show"
 
-  resources :personnages, only: [:search, :show, :new, :create, :update, :destroy] do
+  resources :personnages, only: [:new, :create, :show, :update, :search, :destroy] do
     resources :reservations, only: [:create]
   end
   resources :reservations, only: [:destroy]
