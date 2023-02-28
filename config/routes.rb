@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  get '/users/:id', to: "users#show"
+  get '/users/:id', to: "users#show", as: 'user'
 
   resources :personnages, only: [:search, :show, :new, :create, :update, :destroy] do
-    resources :reservations, only: [:create]
+    resources :reservations, only: [:create, :new]
   end
   resources :reservations, only: [:destroy]
 end
