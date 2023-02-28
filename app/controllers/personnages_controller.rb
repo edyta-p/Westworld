@@ -1,9 +1,9 @@
 class PersonnagesController < ApplicationController
-  before_action :set_user, only: [:create]
-  before_action :set_personnage, only: [:show, :update, :destroy]
+  before_action :set_personnage, only: %i[show edit update destroy]
+
 
   def search
-
+    @personnages = Personnage.all.sample(5)
   end
 
   def show
@@ -16,22 +16,28 @@ class PersonnagesController < ApplicationController
   end
 
   def create
+    @user = current_user
     @personnage = Personnage.new(personnage_params)
     @personnage.user = @user
 
-    if @personnage.save
+    if @personnage.save!
       redirect_to personnage_path(@personnage)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def edit
+  end
+
   def update
     @personnage.update(personnage_params)
+    redirect_to personnage_path(@personnage)
   end
 
   def destroy
     @personnage.destroy
+    redirect_to root_path, status: :see_other
   end
 
   private
@@ -39,10 +45,6 @@ class PersonnagesController < ApplicationController
   # à voir current_user
   def set_personnage
     @personnage = Personnage.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find(params[:user_id])
   end
 
   def personnage_params
