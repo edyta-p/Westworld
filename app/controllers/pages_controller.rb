@@ -4,4 +4,10 @@ class PagesController < ApplicationController
 
   end
 
+  private
+
+  def query_params
+    params.require(:page).permit(:query)
+  end
+
 end

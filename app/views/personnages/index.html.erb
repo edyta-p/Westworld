@@ -1,0 +1,10 @@
+<ul>
+<% @personnages.each do |personnage| %>
+    <li>
+      <span>Name: </span><%= personnage.name %>
+      <span>Role: </span><%= personnage.role %>
+      <span>Category: </span><%= personnage.category %>
+      <span>Price: </span><%= personnage.price %>
+    </li>
+  <% end %>
+</ul>

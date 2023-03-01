@@ -2,8 +2,9 @@ class PersonnagesController < ApplicationController
   before_action :set_personnage, only: %i[show edit update destroy]
 
 
-  def search
-    @personnages = Personnage.all.sample(4)
+  def index
+    search_elem = params[:query]
+    @personnages = Personnage.where(name: search_elem)
   end
 
   def show

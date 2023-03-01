@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: "users#show", as: 'user'
 
-  resources :personnages, only: %i[new create show edit update destroy] do
-    collection do
-      get 'search'
-    end
+  resources :personnages, only: %i[index new create show edit update destroy] do
+    # collection do
+    #   get 'search'
+    # end
     resources :reservations, only: [:create]
   end
   resources :reservations, only: [:destroy]
