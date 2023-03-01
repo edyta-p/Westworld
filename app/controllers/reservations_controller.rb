@@ -5,8 +5,9 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user = current_user
-    @personnage = Personnage.find(params[:id])
+    @personnage = Personnage.find(params[:personnage_id])
     @reservation.personnage = @personnage
+
     if @reservation.save
       redirect_to user_path(current_user)
     else
@@ -15,9 +16,10 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-
+    redirect_to user_path(@user), status: :see_other, notice: "#{@reservation.date} was successfully destroyed"
   end
 
   private
