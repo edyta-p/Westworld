@@ -6,6 +6,8 @@
 
 <h3><strong>Price: </strong><%= @personnage.price %> €</h3>
 
+<%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+
 <%= link_to "Delete personnage", personnage_path(@personnage), data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete?"}, class: 'btn btn-danger' %>
 
 <p>Reservation form</p>
