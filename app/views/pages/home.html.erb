@@ -5,30 +5,34 @@
     <div class="row pt-5">
       <h2 class="pt-5 pb-3">Welcome to Westworld</h2>
       <h1>Rent a character for a day</h1>
-       <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+       <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete} %>
     </div>
   </div>
 </div>
 
 
+  <% @personnages = Personnage.all.sample(7) %>
 
 <div class="container mt-5 mb-5">
   <div class="row">
     <div class="col-sm-12 col-md-4">
-      <h3>Top of the week</h3>
+      <h3>Choice of the moment</h3>
       <div class="row">
         <div class="col-sm-12">
           <div class="card mt-4">
             <%= image_tag "image_12.svg" %>
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Role | Category</p>
-              <h6 class="card-subtitle mb-2">300$</h6>
+              <h5 class="card-title"><%= @personnages[0].name %></h5>
+              <p class="card-text"><%= @personnage.role %> | <%= @personnage.category %></p>
+              <h6 class="card-subtitle mb-2"><%= @personnage.price %></h6>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+
 
     <div class="col-sm-12 col-md-8">
       <h3>Lorem ipsum</h3>
@@ -37,9 +41,11 @@
           <div class="card mt-4">
             <%= image_tag "image_4.svg" %>
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Role | Category</p>
-              <h6 class="card-subtitle mb-2">300$</h6>
+             <% @personnages.each do |personnage| %>
+              <h5 class="card-title"><%= personnage.name %></h5>
+              <p class="card-text"><%= personnage.role %> | <%= personnage.category %></p>
+              <h6 class="card-subtitle mb-2"><%= personnage.price %></h6>
+              <% end %>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ class PersonnagesController < ApplicationController
 
 
   def search
-    @personnages = Personnage.all.sample(5)
+    @personnages = Personnage.all.sample(4)
   end
 
   def show
@@ -22,6 +22,8 @@ class PersonnagesController < ApplicationController
 
     if @personnage.save!
       redirect_to personnage_path(@personnage)
+    elsif @personnage.name.valid? == false
+      redirect_to new_personnage_path, notice: "The name is already taken"
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,12 +34,12 @@ class PersonnagesController < ApplicationController
 
   def update
     @personnage.update(personnage_params)
-    redirect_to personnage_path(@personnage)
+    redirect_to personnage_path(@personnage), notice: "#{@personnage.name} was successfully updated"
   end
 
   def destroy
     @personnage.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to root_path, status: :see_other, notice: "#{@personnage.name} was successfully destroyed"
   end
 
   private

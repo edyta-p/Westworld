@@ -1,8 +1,15 @@
 <h1><%= @personnage.name %></h1>
 
+<h3><strong>Role: </strong><%= @personnage.role %></h2>
+
+<h3><strong>Category: </strong><%= @personnage.category %></h3>
+
+<h3><strong>Price: </strong><%= @personnage.price %> €</h3>
+
+<%= link_to "Delete personnage", personnage_path(@personnage), data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete?"}, class: 'btn btn-danger' %>
+
+<p>Reservation form</p>
 <%= simple_form_for [@personnage, @reservation] do |f| %>
   <%= f.input :date %>
   <%= f.submit %>
 <% end %>
-
-<%= link_to "Delete personnage", personnage_path(@personnage), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
