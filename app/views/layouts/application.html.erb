@@ -11,8 +11,9 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% unless notice.nil? || alert.nil? %>
+      <%= render 'shared/flashes' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

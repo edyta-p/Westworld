@@ -13,6 +13,8 @@ class PersonnagesController < ApplicationController
 
   def new
     @personnage = Personnage.new
+    @my_own_personnages = current_user.personnages
+    @my_reservations = current_user.reservations
   end
 
   def create

@@ -1,5 +1,36 @@
-<h1>Personnages#new</h1>
-<p>Find me in app/views/personnages/new.html.erb</p>
+<div class="row gap-0 ">
+  <div class="d-flex vh-100 col-3 flex-column">
+    <div class="col d-flex flex-column justify-content-between align-items-center" style="background-color: #206D69; max-height: 25%;">
+     <h1>Profile</h1>
+     <div class="row h-100 justify-content-between align-items-center">
+        <button><p>Username</p></button>
+        <button> <p>Mail</p></button>
+        <button><p>Password</p></button>
+      </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1" style="background-color: #152937;">
+      <h1>Creation</h1>
+      <%= simple_form_for (@personnage), html: {class: "p-auto m-auto d-flex flex-column h-100 w-100 justify-content-between"} do |f| %>
+        <div class="d-flex flex-column justify-content-between h-75 w-75 p-3 m-auto", style="background-color: #0B132B;">
+          <%= f.input :name, input_html: {style: "background-color: #183D50;" }%>
+          <%= f.input :category, input_html: {style: "background-color: #183D50;" } %>
+          <%= f.input :role, input_html: {style: "background-color: #183D50;" } %>
+          <%= f.input :price, input_html: {style: "background-color: #183D50;" } %>
+        </div>
+        <%= f.submit%>
+      <% end %>
 
-
-<%= render "form" %>
+    </div>
+  </div>
+  <div class="col" style="background-color: #183D50;">
+    <div class=" row h-50 text-center justify-content-around" style="background-color: #002C55;">
+      <h1>Owned</h1>
+      <% @my_own_personnages.each do |personnage| %>
+          <%= render "pages/card", personnage: personnage%>
+      <%end%>
+    </div>
+    <div class="h-50 text-center " style="background-color: #1E2E38;">
+      <h1>Rented</h1>
+    </div>
+  </div>
+</div>
