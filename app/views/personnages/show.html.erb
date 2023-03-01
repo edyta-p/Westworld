@@ -6,3 +6,9 @@
 <% end %>
 
 <%= link_to "Delete personnage", personnage_path(@personnage), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+<% if policy(@rpersonnage).edit? %>
+  <%= link_to "Edit this personnage", edit_personnage_path(@personnage) %> |
+<% end %>
+<!-- [...] -->
+<%= button_to "Destroy this personnage", @personnage, method: :delete if policy(@personnage).destroy? %>
