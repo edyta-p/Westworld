@@ -39,8 +39,9 @@ class PersonnagesController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @personnage.destroy
-    redirect_to root_path, status: :see_other, notice: "#{@personnage.name} was successfully destroyed"
+    redirect_to user_path(@user), status: :see_other, notice: "#{@personnage.name} was successfully destroyed"
   end
 
   private

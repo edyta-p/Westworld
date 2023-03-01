@@ -1,13 +1,13 @@
-.form-control, .form-control:focus {
+.form-control, .form-control:focus, .form-select {
   color: $dark-2;
   background-color: $white;
   border-color: $white;
 }
 
-.form-check-input {
+.form-check-input, .form-select {
   background-color: $white;
   border-color: $white;
 }
-.form-text {
+.form-text, .form-select {
   color: #AAA;
 }

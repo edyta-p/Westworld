@@ -1,10 +1,28 @@
-<ul>
-<% @personnages.each do |personnage| %>
-    <li>
-      <span>Name: </span><%= personnage.name %>
-      <span>Role: </span><%= personnage.role %>
-      <span>Category: </span><%= personnage.category %>
-      <span>Price: </span><%= personnage.price %>
-    </li>
-  <% end %>
-</ul>
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <h3>The results</h3>
+      <div class="row">
+
+
+        <% @personnages.each do |personnage| %>
+
+            <div class="col-md-6 col-lg-4">
+              <%= link_to personnage_path(personnage) do %>
+                <div class="card mt-4">
+                  <%= image_tag "image_4.svg" %>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= personnage.name %></h5>
+                    <p class="card-text"><%= personnage.role %> | <%= personnage.category %></p>
+                    <h6 class="card-subtitle mb-2"><%= personnage.price %>€</h6>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
