@@ -1,11 +1,26 @@
 <h1>Users#show</h1>
 
-<p>Find me in app/views/users/show.html.erb</p>
+<p>My reservations </p>
 
 <% @user.reservations.each do |reservation| %>
   <%= reservation.date %>
   <%= link_to "Delete",
     reservation_path(reservation),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete?"}
   %>
 <% end %>
+
+
+<p>My personnages</p>
+
+<ul>
+<% @user.personnages.each do |personnage| %>
+    <li>
+      <%= personnage.name %>
+      <%= link_to "Delete",
+        personnage_path(personnage),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete?"}
+      %>
+    </li>
+  <% end %>
+</ul>

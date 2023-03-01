@@ -2,8 +2,9 @@ class PersonnagesController < ApplicationController
   before_action :set_personnage, only: %i[show edit update destroy]
 
 
-  def search
-    @personnages = Personnage.all.sample(5)
+  def index
+    search_elem = params[:query]
+    @personnages = Personnage.where(name: search_elem)
   end
 
   def show
@@ -24,6 +25,8 @@ class PersonnagesController < ApplicationController
 
     if @personnage.save!
       redirect_to personnage_path(@personnage)
+    elsif @personnage.name.valid? == false
+      redirect_to new_personnage_path, notice: "The name is already taken"
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,12 +37,13 @@ class PersonnagesController < ApplicationController
 
   def update
     @personnage.update(personnage_params)
-    redirect_to personnage_path(@personnage)
+    redirect_to personnage_path(@personnage), notice: "#{@personnage.name} was successfully updated"
   end
 
   def destroy
+    @user = current_user
     @personnage.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to user_path(@user), status: :see_other, notice: "#{@personnage.name} was successfully destroyed"
   end
 
   private
@@ -50,6 +54,6 @@ class PersonnagesController < ApplicationController
   end
 
   def personnage_params
-    params.require(:personnage).permit(:name, :category, :role, :price)
+    params.require(:personnage).permit(:name, :category, :role, :price, :photo)
   end
 end

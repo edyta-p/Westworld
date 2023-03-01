@@ -1,8 +1,31 @@
-<h1><%= @personnage.name %></h1>
+<div class="row blue-background">
+  <div class="col-md-12 col-lg-7 mt-5">
+    <div class="row mt-4">
+      <h1 class="mb-5"><%= @personnage.name %></h1>
 
-<%= simple_form_for [@personnage, @reservation] do |f| %>
-  <%= f.input :date %>
-  <%= f.submit %>
-<% end %>
+      <p><strong><span class="dark-2">Role: </span><%= @personnage.role %> | <span class="dark-2">Category: </span><%= @personnage.category %></strong></p>
+    </div>
+    <div class="row text-center">
+      <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+    </div>
+  </div>
 
-<%= link_to "Delete personnage", personnage_path(@personnage), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+  <div class="col-md-12 col-lg-5 dark-3-background pt-5">
+    <div class="row mt-4 pl-5">
+      <h2>Reservation</h2>
+      <h2 class="light-blue mt-5"><strong><%= @personnage.price %>$</strong></h2>
+    </div>
+    <div class="row mt-5 pl-5">
+      <div class="search-form-control form-group">
+        <%= simple_form_for [@personnage, @reservation] do |f| %>
+          <%= f.input :date, class:"form-control" %>
+          <%= f.submit%>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mt-5 pl-5">
+      <%= link_to "Delete personnage", personnage_path(@personnage), data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete?"}, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div>
