@@ -48,6 +48,6 @@ class PersonnagesController < ApplicationController
   end
 
   def personnage_params
-    params.require(:personnage).permit(:name, :category, :role, :price)
+    params.require(:personnage).permit(:name, :category, :role, :price, :photo)
   end
 end
