@@ -6,9 +6,10 @@
       <p><strong><span class="dark-2">Role: </span><%= @personnage.role %> | <span class="dark-2">Category: </span><%= @personnage.category %></strong></p>
     </div>
     <div class="row text-center">
-      <%= image_tag "image_12.svg", class:"image_character" %>
+      <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
     </div>
   </div>
+
 
   <div class="col-md-12 col-lg-5 dark-3-background pt-5">
     <div class="row mt-4 pl-5">

@@ -2,6 +2,7 @@
   <%= f.input :name %>
   <%= f.input :category, :collection => %w[good bad] %>
   <%= f.input :role, :collection => %w[sherif thief marshall cowboy criminal doctor] %>
+   <%= f.input :photo, as: :file %>
   <%= f.input :price %>
   <%= f.submit %>
 <% end %>

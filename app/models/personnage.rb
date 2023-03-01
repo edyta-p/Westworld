@@ -1,6 +1,7 @@
 class Personnage < ApplicationRecord
   belongs_to :user
   has_many :reservations
+  has_one_attached :photo
 
   CATEGORY = ['good', 'bad']
   ROLE = ['sherif', 'thief', 'marshall', 'cowboy', 'criminal', 'doctor']
