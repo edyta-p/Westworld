@@ -1,36 +1,29 @@
-<div class="navbar"></div>
-
 <div class="banner text-center">
   <div class="container">
     <div class="row pt-5">
-      <h2 class="pt-5 pb-3">Welcome to Westworld</h2>
+      <h1 class="pt-5 pb-3">Welcome to Westworld</h1>
       <section class="animation">
-        <div class="first"><div><p><strong>Rent a character for a day</strong></p></div></div>
-        <div class="second"><div><p><strong>Earn money by renting your own character</strong></p></div></div>
-        <div class="third"><div><p><strong>Immerse yourself in Westworld</strong></p></div></div>
+        <div class="first"><div><h2>Rent a character for a day</h2></div></div>
+        <div class="second"><div><h2>Earn money by renting your own character</h2></div></div>
+        <div class="third"><div><h2>Immerse yourself in Westworld</h2></div></div>
       </section>
     </div>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+    <div class="row pt-5">
       <%= form_with url: personnages_path, method: :get do |form| %>
         <%= form.label :query, "Search for:" %>
         <%= form.text_field :query %>
         <%= form.submit "Search" %>
       <% end %>
+    </div>
   </div>
 </div>
 
-
-
-
   <div class="container mt-5 mb-5">
     <div class="row">
-      <div class="col-sm-12 col-md-4">
+      <div class="col-sm-12 col-md-4  mt-5">
         <h3>Choice of the moment</h3>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col col-sm-12">
             <%= link_to personnage_path(@choice_of_the_moment) do %>
               <div class="card mt-4">
                 <%= image_tag "image_12.svg" %>
@@ -45,14 +38,11 @@
         </div>
       </div>
 
-
-
-
-    <div class="col-sm-12 col-md-8">
-      <h3>Lorem ipsum</h3>
+    <div class="col-sm-12 col-md-8  mt-5">
+      <h3>Discover</h3>
       <div class="row">
         <% @all_the_rest.each do |personnage| %>
-            <div class="col-md-6 col-lg-4">
+            <div class="col col-md-6 col-lg-4">
               <%= link_to personnage_path(personnage) do %>
                 <div class="card mt-4">
                   <%= image_tag "image_4.svg" %>
