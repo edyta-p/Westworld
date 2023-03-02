@@ -4,5 +4,9 @@
 
 import { application } from "./application"
 
+import Notification from 'stimulus-notification'
+
 import HelloController from "./hello_controller"
+
+application.register('notification', Notification)
 application.register("hello", HelloController)

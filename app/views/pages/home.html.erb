@@ -8,13 +8,15 @@
         <div class="third"><div><h2>Immerse yourself in Westworld</h2></div></div>
       </section>
     </div>
+
     <div class="row pt-5">
       <%= form_with url: personnages_path, method: :get do |form| %>
-        <%= form.label :query, "Search for:" %>
-        <%= form.text_field :query %>
-        <%= form.submit "Search" %>
+          <%= form.text_field :query, placeholder: "What's his name?", style: "background-color: white;" %>
+        <%= form.submit "Search"%>
       <% end %>
+
     </div>
+
   </div>
 </div>
 
