@@ -4,10 +4,17 @@
   <div class="container">
     <div class="row pt-5">
       <h2 class="pt-5 pb-3">Welcome to Westworld</h2>
-      <h1>Rent a character for a day</h1>
-      <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete} %>
+      <section class="animation">
+        <div class="first"><div><p><strong>Rent a character for a day</strong></p></div></div>
+        <div class="second"><div><p><strong>Earn money by renting your own character</strong></p></div></div>
+        <div class="third"><div><p><strong>Immerse yourself in Westworld</strong></p></div></div>
+      </section>
     </div>
-      <%= form_with url: "/personnages", method: :get do |form| %>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+      <%= form_with url: personnages_path, method: :get do |form| %>
         <%= form.label :query, "Search for:" %>
         <%= form.text_field :query %>
         <%= form.submit "Search" %>
@@ -17,25 +24,26 @@
 
 
 
-  <% @personnages = Personnage.all.sample(7) %>
 
-<div class="container mt-5 mb-5">
-  <div class="row">
-    <div class="col-sm-12 col-md-4">
-      <h3>Choice of the moment</h3>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="card mt-4">
-            <%= image_tag "image_12.svg" %>
-            <div class="card-body">
-              <h5 class="card-title"><%= @personnages[0].name %></h5>
-              <p class="card-text"><%= @personnages[0].role %> | <%= @personnages[0].category %></p>
-              <h6 class="card-subtitle mb-2"><%= @personnages[0].price %></h6>
-            </div>
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <h3>Choice of the moment</h3>
+        <div class="row">
+          <div class="col-sm-12">
+            <%= link_to personnage_path(@choice_of_the_moment) do %>
+              <div class="card mt-4">
+                <%= image_tag "image_12.svg" %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= @choice_of_the_moment.name %></h5>
+                  <p class="card-text"><%= @choice_of_the_moment.role %> | <%= @choice_of_the_moment.category %></p>
+                  <h6 class="card-subtitle mb-2"><%= @choice_of_the_moment.price %>€</h6>
+                </div>
+              </div>
+              <% end %>
           </div>
         </div>
       </div>
-    </div>
 
 
 
@@ -43,74 +51,21 @@
     <div class="col-sm-12 col-md-8">
       <h3>Lorem ipsum</h3>
       <div class="row">
-        <div class="col-md-6 col-lg-4">
-          <div class="card mt-4">
-            <%= image_tag "image_4.svg" %>
-            <div class="card-body">
-              <h5 class="card-title"><%= @personnages[1].name %></h5>
-              <p class="card-text"><%= @personnages[1].role %> | <%= @personnages[1].category %></p>
-              <h6 class="card-subtitle mb-2"><%= @personnages[1].price %></h6>
+        <% @all_the_rest.each do |personnage| %>
+            <div class="col-md-6 col-lg-4">
+              <%= link_to personnage_path(personnage) do %>
+                <div class="card mt-4">
+                  <%= image_tag "image_4.svg" %>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= personnage.name %></h5>
+                    <p class="card-text"><%= personnage.role %> | <%= personnage.category %></p>
+                    <h6 class="card-subtitle mb-2"><%= personnage.price %>€</h6>
+                  </div>
+                </div>
+              <% end %>
             </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="card mt-4">
-            <%= image_tag "image_5.svg" %>
-            <div class="card-body">
-              <h5 class="card-title"><%= @personnages[2].name %></h5>
-              <p class="card-text"><%= @personnages[2].role %> | <%= @personnages[2].category %></p>
-              <h6 class="card-subtitle mb-2"><%= @personnages[2].price %></h6>
-            </div>
-          </div>
-        </div>
-
-         <div class="col-md-6 col-lg-4">
-          <div class="card mt-4">
-            <%= image_tag "image_7.svg" %>
-            <div class="card-body">
-              <h5 class="card-title"><%= @personnages[3].name %></h5>
-              <p class="card-text"><%= @personnages[3].role %> | <%= @personnages[3].category %></p>
-              <h6 class="card-subtitle mb-2"><%= @personnages[3].price %></h6>
-            </div>
-          </div>
-        </div>
-
-         <div class="col-md-6 col-lg-4">
-          <div class="card mt-4">
-            <%= image_tag "image_8.svg" %>
-            <div class="card-body">
-              <h5 class="card-title"><%= @personnages[4].name %></h5>
-              <p class="card-text"><%= @personnages[4].role %> | <%= @personnages[4].category %></p>
-              <h6 class="card-subtitle mb-2"><%= @personnages[4].price %></h6>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="card mt-4">
-            <%= image_tag "image_9.svg" %>
-            <div class="card-body">
-              <h5 class="card-title"><%= @personnages[5].name %></h5>
-              <p class="card-text"><%= @personnages[5].role %> | <%= @personnages[5].category %></p>
-              <h6 class="card-subtitle mb-2"><%= @personnages[5].price %></h6>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="card mt-4">
-            <%= image_tag "image_10.svg" %>
-            <div class="card-body">
-              <h5 class="card-title"><%= @personnages[6].name %></h5>
-              <p class="card-text"><%= @personnages[6].role %>  | <%= @personnages[6].category %></p>
-              <h6 class="card-subtitle mb-2"><%= @personnages[6].price %></h6>
-            </div>
-          </div>
-        </div>
-
+        <% end %>
       </div>
-
     </div>
 
 
