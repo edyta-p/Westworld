@@ -12,7 +12,9 @@
             <div class="col-md-6 col-lg-4">
               <%= link_to personnage_path(personnage) do %>
                 <div class="card mt-4">
-                  <%= cl_image_tag(personnage.photo.key) %>
+                <% if personnage.photo.present? %>
+                  <%= cl_image_tag personnage.photo.key %>
+                  <% end %>
                   <div class="card-body">
                     <h5 class="card-title"><%= personnage.name %></h5>
                     <p class="card-text"><%= personnage.role %> | <%= personnage.category %></p>
