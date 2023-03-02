@@ -11,7 +11,6 @@ class PersonnagesController < ApplicationController
     @reservation = Reservation.new
   end
 
-
   def create
     @user = current_user
     @personnage = Personnage.new(personnage_params)

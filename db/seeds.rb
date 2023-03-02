@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 require "cloudinary"
 #   Character.create(name: "Luke", movie: movies.first)
+# Reservation.destroy_all
 Personnage.destroy_all
 User.destroy_all
 

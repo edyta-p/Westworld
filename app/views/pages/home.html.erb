@@ -26,6 +26,7 @@
           <div class="col col-sm-12">
             <%= link_to personnage_path(@choice_of_the_moment) do %>
               <div class="card mt-4">
+
                 <%= cl_image_tag @choice_of_the_moment.photo.key %>
                 <div class="card-body">
                   <h5 class="card-title"><%= @choice_of_the_moment.name %></h5>
