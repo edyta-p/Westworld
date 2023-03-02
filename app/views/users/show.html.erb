@@ -15,7 +15,7 @@
           <%= f.input :category, input_html: {style: "background-color: #183D50;" }, collection: %i[bad good] %>
           <%= f.input :role, input_html: {style: "background-color: #183D50;" }, collection: %i[sherif thief marshall cowboy criminal doctor] %>
           <%= f.input :price, input_html: {style: "background-color: #183D50;" } %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= f.input :photo, as: :file %>
           <%= f.submit input_html: {style: "background-color: red;"}%>
         </div>
       <% end %>
