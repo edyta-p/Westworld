@@ -1,7 +1,6 @@
 class PersonnagesController < ApplicationController
   before_action :set_personnage, only: %i[show edit update destroy]
 
-
   def index
     search_elem = params[:query]
     @personnages = Personnage.where(name: search_elem)
@@ -12,11 +11,6 @@ class PersonnagesController < ApplicationController
     @reservation = Reservation.new
   end
 
-  def new
-    @personnage = Personnage.new
-    @my_own_personnages = current_user.personnages
-    @my_reservations = current_user.reservations
-  end
 
   def create
     @user = current_user

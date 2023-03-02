@@ -1,26 +1,35 @@
-<h1>Users#show</h1>
+<div class="row gap-0 ">
+  <div class="d-flex vh-100 col-3 flex-column">
+    <div class="col d-flex flex-column justify-content-between align-items-center" style="background-color: #206D69; max-height: 25%;">
 
-<p>My reservations </p>
+     <h1 class="mt-5">Profile</h1>
+     <div class="row h-100 justify-content-between">
+        <p>Username | Mail </p>
+      </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1" style="background-color: #152937;">
+      <h2 class="mt-5 ">Creation</h2>
+      <%= simple_form_for (@personnage), html: {class: "p-auto m-auto d-flex flex-column h-100 w-100 justify-content-between"} do |f| %>
+        <div class="d-flex flex-column m-auto mt-5 justify-content-between h-75 w-75 p-3", style="background-color: #0B132B;">
+          <%= f.input :name, input_html: {style: "background-color: #183D50;" }%>
+          <%= f.input :category, input_html: {style: "background-color: #183D50;" }, collection: %i[bad good] %>
+          <%= f.input :role, input_html: {style: "background-color: #183D50;" }, collection: %i[sherif thief marshall cowboy criminal doctor] %>
+          <%= f.input :price, input_html: {style: "background-color: #183D50;" } %>
+          <%= f.submit input_html: {style: "background-color: red;"}%>
+        </div>
+      <% end %>
 
-<% @user.reservations.each do |reservation| %>
-  <%= reservation.date %>
-  <%= link_to "Delete",
-    reservation_path(reservation),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete?"}
-  %>
-<% end %>
-
-
-<p>My personnages</p>
-
-<ul>
-<% @user.personnages.each do |personnage| %>
-    <li>
-      <%= personnage.name %>
-      <%= link_to "Delete",
-        personnage_path(personnage),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete?"}
-      %>
-    </li>
-  <% end %>
-</ul>
+    </div>
+  </div>
+  <div class="col" style="background-color: #183D50;">
+    <div class=" row" style="background-color: #002C55;">
+      <h2 class=" text-center">Owned</h2>
+      <% @my_own_personnages.each do |personnage| %>
+          <%= render "pages/card", personnage: personnage%>
+      <%end%>
+    </div>
+    <div class="row  text-center ">
+      <h2 class=" ">Rented</h2>
+    </div>
+  </div>
+</div>
