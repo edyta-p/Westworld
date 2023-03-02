@@ -15,21 +15,21 @@
           <%= f.input :category, input_html: {style: "background-color: #183D50;" }, collection: %i[bad good] %>
           <%= f.input :role, input_html: {style: "background-color: #183D50;" }, collection: %i[sherif thief marshall cowboy criminal doctor] %>
           <%= f.input :price, input_html: {style: "background-color: #183D50;" } %>
-          <%= f.input :photo, as: :file %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.submit input_html: {style: "background-color: red;"}%>
         </div>
       <% end %>
 
     </div>
   </div>
-  <div class="col-9" style="background-color: #152937;">
-    <div class="row" style="background-color: #152937;">
+  <div class="col-9">
+    <div class="row display-flex justify-content-around" style="background-color: #0B132B;">
       <h2 class=" text-center">Owned</h2>
       <% @my_own_personnages.each do |personnage| %>
           <%= render "pages/card", personnage: personnage%>
       <%end%>
     </div>
-    <div class="row  text-center display-flex justify-content-around" style="background-color:#0B132B;">
+    <div class="row  text-center display-flex justify-content-around">
       <h2 class=" ">Rented</h2>
       <% @my_bookings.each do |booking| %>
        <%= render "pages/card", personnage: booking.personnage%>

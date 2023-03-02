@@ -27,7 +27,7 @@
             <%= link_to personnage_path(@choice_of_the_moment) do %>
               <div class="card mt-4">
               <% if @choice_of_the_moment.photo.present? %>
-                <%= cl_image_tag @choice_of_the_moment.photo.key, height: 300, width: 400, crop: :fill %>
+                <%= cl_image_tag @choice_of_the_moment.photo.key, crop: :fill %>
                 <% end %>
                 <div class="card-body">
                   <h5 class="card-title"><%= @choice_of_the_moment.name %></h5>
@@ -48,7 +48,7 @@
               <%= link_to personnage_path(personnage) do %>
                 <div class="card mt-4">
                 <% if personnage.photo.present? %>
-                  <%= cl_image_tag personnage.photo.key, height: 300, width: 400, crop: :fill %>
+                  <%= cl_image_tag personnage.photo.key, crop: :fill %>
                 <% end %>
                   <div class="card-body">
                     <h5 class="card-title"><%= personnage.name %></h5>
