@@ -14,6 +14,8 @@ class PersonnagesController < ApplicationController
 
   def new
     @personnage = Personnage.new
+    @my_own_personnages = current_user.personnages
+    @my_reservations = current_user.reservations
   end
 
   def create
@@ -39,8 +41,9 @@ class PersonnagesController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @personnage.destroy
-    redirect_to root_path, status: :see_other, notice: "#{@personnage.name} was successfully destroyed"
+    redirect_to user_path(@user), status: :see_other, notice: "#{@personnage.name} was successfully destroyed"
   end
 
   private
