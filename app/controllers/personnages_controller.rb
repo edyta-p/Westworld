@@ -19,8 +19,6 @@ class PersonnagesController < ApplicationController
 
     if @personnage.save!
       redirect_to personnage_path(@personnage)
-    elsif @personnage.name.valid? == false
-      redirect_to new_personnage_path, notice: "The name is already taken"
     else
       render :new, status: :unprocessable_entity
     end
