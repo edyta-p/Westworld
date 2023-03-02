@@ -28,12 +28,12 @@
               <div class="card mt-4">
 
               <% if @choice_of_the_moment.photo.present? %>
-                <%= cl_image_tag @choice_of_the_moment.photo.key, height: 300, width: 400, crop: :fill %>
+                <%= cl_image_tag @choice_of_the_moment.photo.key%>
                 <% end %>
                 <div class="card-body">
                   <h5 class="card-title"><%= @choice_of_the_moment.name %></h5>
                   <p class="card-text"><%= @choice_of_the_moment.role %> | <%= @choice_of_the_moment.category %></p>
-                  <h6 class="card-subtitle mb-2"><%= @choice_of_the_moment.price %>€</h6>
+                  <h6 class="card-subtitle mb-2"><%= @choice_of_the_moment.price %>$</h6>
                 </div>
               </div>
               <% end %>
@@ -49,12 +49,12 @@
               <%= link_to personnage_path(personnage) do %>
                 <div class="card mt-4">
                 <% if personnage.photo.present? %>
-                  <%= cl_image_tag personnage.photo.key, height: 300, width: 400, crop: :fill %>
+                  <%= cl_image_tag personnage.photo.key%>
                 <% end %>
                   <div class="card-body">
                     <h5 class="card-title"><%= personnage.name %></h5>
                     <p class="card-text"><%= personnage.role %> | <%= personnage.category %></p>
-                    <h6 class="card-subtitle mb-2"><%= personnage.price %>€</h6>
+                    <h6 class="card-subtitle mb-2"><%= personnage.price %>$</h6>
                   </div>
                 </div>
               <% end %>
@@ -62,7 +62,5 @@
         <% end %>
       </div>
     </div>
-
-
   </div>
 </div>
