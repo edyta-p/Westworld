@@ -6,14 +6,14 @@
       <p><strong><span class="dark-2">Role: </span><%= @personnage.role %> | <span class="dark-2">Category: </span><%= @personnage.category %></strong></p>
     </div>
     <div class="row text-center">
-
-      <%= cl_image_tag @personnage.photo.key, height: 600, width: 300, crop: :fill %>
-
+        <% if @personnage.photo.present? %>
+          <%= cl_image_tag @personnage.photo.key, height: 600, width: 300, crop: :fill %>
+        <% end %>
     </div>
   </div>
 
 
-  <div class="col-md-12 col-lg-5 dark-3-background pt-5">
+  <div class="col-md-12 col-lg-5 dark-3-background">
     <div class="row mt-4 pl-5">
       <h2>Reservation</h2>
       <h2 class="light-blue mt-5"><strong><%= @personnage.price %>$</strong></h2>
