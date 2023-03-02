@@ -4,9 +4,16 @@
   <div class="container">
     <div class="row pt-5">
       <h2 class="pt-5 pb-3">Welcome to Westworld</h2>
-      <h1>Rent a character for a day</h1>
-      <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete} %>
+      <section class="animation">
+        <div class="first"><div><p><strong>Rent a character for a day</strong></p></div></div>
+        <div class="second"><div><p><strong>Earn money by renting your own character</strong></p></div></div>
+        <div class="third"><div><p><strong>Immerse yourself in Westworld</strong></p></div></div>
+      </section>
     </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
       <%= form_with url: personnages_path, method: :get do |form| %>
         <%= form.label :query, "Search for:" %>
         <%= form.text_field :query %>
