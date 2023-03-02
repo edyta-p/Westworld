@@ -18,17 +18,17 @@ lucke = Personnage.create(name: 'Lucke', category: 'good', role: 'sherif', price
 lucke_image = Cloudinary::Uploader.upload('app/assets/images/image_4.svg')
 lucke.photo.attach(io: URI.open(lucke_image['url']), filename: 'tutu.jpg')
 
-billy = Personnage.create(name: 'Billy', category: 'bad', role: 'thief', price: 200, user: bob)
-billy_image = Cloudinary::Uploader.upload('app/assets/images/image_5.svg')
-billy.photo.attach(io: URI.open(billy_image['url']), filename: 'tutu.jpg')
+pamela = Personnage.create(name: 'Pamela', category: 'bad', role: 'thief', price: 200, user: bob)
+pamela_image = Cloudinary::Uploader.upload('app/assets/images/image_5.svg')
+pamela.photo.attach(io: URI.open(pamela_image['url']), filename: 'tutu.jpg')
 
-jane = Personnage.create(name: 'Jane', category: 'bad', role: 'thief', price: 100, user: jen)
-jane_image = Cloudinary::Uploader.upload('app/assets/images/image_7.svg')
-jane.photo.attach(io: URI.open(jane_image['url']), filename: 'tutu.jpg')
+dolores = Personnage.create(name: 'Dolores', category: 'bad', role: 'thief', price: 100, user: jen)
+dolores_image = Cloudinary::Uploader.upload('app/assets/images/image_7.svg')
+dolores.photo.attach(io: URI.open(dolores_image['url']), filename: 'tutu.jpg')
 
-jo = Personnage.create(name: 'Jo', category: 'bad', role: 'criminal', price: 300, user: bob)
-jo_image = Cloudinary::Uploader.upload('app/assets/images/image_8.svg')
-jo.photo.attach(io: URI.open(jo_image['url']), filename: 'tutu.jpg')
+doc = Personnage.create(name: 'Doc', category: 'good', role: 'doctor', price: 300, user: bob)
+doc_image = Cloudinary::Uploader.upload('app/assets/images/image_8.svg')
+doc.photo.attach(io: URI.open(doc_image['url']), filename: 'tutu.jpg')
 
 jessy = Personnage.create(name: 'Jessy', category: 'good', role: 'cowboy', price: 300, user: jen)
 jessy_image = Cloudinary::Uploader.upload('app/assets/images/image_9.svg')
@@ -38,10 +38,10 @@ black = Personnage.create(name: 'Black', category: 'good', role: 'marshall', pri
 black_image = Cloudinary::Uploader.upload('app/assets/images/image_10.svg')
 black.photo.attach(io: URI.open(black_image['url']), filename: 'tutu.jpg')
 
-doc = Personnage.create(name: 'Doc', category: 'good', role: 'doctor', price: 500, user: jen)
-doc_image = Cloudinary::Uploader.upload('app/assets/images/image_11.svg')
-doc.photo.attach(io: URI.open(doc_image['url']), filename: 'tutu.jpg')
+billy = Personnage.create(name: 'Billy', category: 'bad', role: 'criminal', price: 500, user: jen)
+billy_image = Cloudinary::Uploader.upload('app/assets/images/image_11.svg')
+billy.photo.attach(io: URI.open(billy_image['url']), filename: 'tutu.jpg')
 
-pat = Personnage.create(name: 'Pat', category: 'bad', role: 'thief', price: 100, user: bob)
-pat_image = Cloudinary::Uploader.upload('app/assets/images/image_12.svg')
-pat.photo.attach(io: URI.open(pat_image['url']), filename: 'tutu.jpg')
+ginette = Personnage.create(name: 'Ginette', category: 'bad', role: 'dancer', price: 100, user: bob)
+ginette_image = Cloudinary::Uploader.upload('app/assets/images/image_12.svg')
+ginette.photo.attach(io: URI.open(ginette_image['url']), filename: 'tutu.jpg')
