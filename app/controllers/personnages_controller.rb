@@ -3,7 +3,7 @@ class PersonnagesController < ApplicationController
 
   def index
     search_elem = params[:query]
-    @personnages = Personnage.where(name: search_elem)
+    @personnages = Personnage.where("name ILIKE ?", search_elem)
   end
 
   def show

@@ -4,7 +4,7 @@
 
      <h1 class="">Profile</h1>
      <div class="row h-100 justify-content-between">
-        <p>Username | Mail </p>
+        <p><%= @user.email %></p>
       </div>
     </div>
     <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1" style="background-color: #152937;">
@@ -24,15 +24,45 @@
   </div>
   <div class="col-9">
     <div class="row display-flex justify-content-around" style="background-color: #0B132B;">
-      <h2 class=" text-center">Owned</h2>
+      <div class="waviy">
+        <span style="--i:1">M</span>
+        <span style="--i:2">Y</span>
+        <span>   </span>
+        <span style="--i:3">C</span>
+        <span style="--i:4">H</span>
+        <span style="--i:5">A</span>
+        <span style="--i:6">R</span>
+        <span style="--i:7">A</span>
+        <span style="--i:8">C</span>
+        <span style="--i:8">T</span>
+        <span style="--i:8">E</span>
+        <span style="--i:8">R</span>
+        <span style="--i:8">S</span>
+      </div>
+
+
       <% @my_own_personnages.each do |personnage| %>
-          <%= render "pages/card", personnage: personnage%>
+            <%= render "pages/card", personnage: personnage %>
       <%end%>
+
     </div>
     <div class="row  text-center display-flex justify-content-around">
-      <h2 class=" ">Rented</h2>
+      <div class="waviy">
+        <span style="--i:1">M</span>
+        <span style="--i:2">Y</span>
+        <span>   </span>
+        <span style="--i:3">B</span>
+        <span style="--i:4">O</span>
+        <span style="--i:5">O</span>
+        <span style="--i:6">K</span>
+        <span style="--i:7">I</span>
+        <span style="--i:8">N</span>
+        <span style="--i:8">G</span>
+        <span style="--i:8">S</span>
+      </div>
+
       <% @my_bookings.each do |booking| %>
-       <%= render "pages/card", personnage: booking.personnage%>
+       <%= render "pages/reservationCard", personnage: booking.personnage, booking: booking %>
        <% end %>
     </div>
   </div>

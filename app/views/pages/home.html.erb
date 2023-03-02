@@ -3,9 +3,9 @@
     <div class="row pt-5">
       <h1 class="pt-5 pb-3">Welcome to Westworld</h1>
       <section class="animation">
-        <div class="first"><div><h2>Rent a character for a day</h2></div></div>
+        <div class="first"><div><h2>Rent a character for a day and embark on an adventure</h2></div></div>
         <div class="second"><div><h2>Earn money by renting your own character</h2></div></div>
-        <div class="third"><div><h2>Immerse yourself in Westworld</h2></div></div>
+        <div class="third"><div><h2>Immerse yourself in world of the far West</h2></div></div>
       </section>
     </div>
 
@@ -45,7 +45,7 @@
       </div>
 
     <div class="col-sm-12 col-md-8  mt-5">
-      <h3>Discover</h3>
+      <h3>Discover our current offer</h3>
       <div class="row">
         <% @all_the_rest.each do |personnage| %>
             <div class="col col-md-6 col-lg-4">
@@ -53,8 +53,6 @@
                 <div class="card mt-4">
                 <% if personnage.photo.present? %>
                   <%= cl_image_tag personnage.photo.key, crop: :fill %>
-
-
                 <% end %>
                   <div class="card-body">
                     <h5 class="card-title"><%= personnage.name %></h5>
