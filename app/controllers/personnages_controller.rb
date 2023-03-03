@@ -2,7 +2,7 @@ class PersonnagesController < ApplicationController
   before_action :set_personnage, only: %i[show edit update destroy]
 
   def index
-    search_elem = params[:query]
+    search_elem = "%#{params[:query]}%"
     @personnages = Personnage.where("name ILIKE ?", search_elem)
   end
 
