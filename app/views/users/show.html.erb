@@ -7,23 +7,47 @@
         <p><%= @user.email %></p>
       </div>
     </div>
+
     <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1" style="background-color: #152937;">
-      <h2 class="mt-5 ">Creation</h2>
-      <%= simple_form_for (@personnage), html: {class: "p-auto m-auto d-flex flex-column h-100 w-100 justify-content-between"} do |f| %>
-        <div class="d-flex flex-column m-auto mt-5 justify-content-between h-75 w-75 p-3", style="background-color: #0B132B;">
-          <%= f.input :name, input_html: {style: "background-color: #183D50;" }%>
-          <%= f.input :category, input_html: {style: "background-color: #183D50;" }, collection: %i[bad good] %>
-          <%= f.input :role, input_html: {style: "background-color: #183D50;" }, collection: %i[sherif thief marshall cowboy criminal doctor] %>
-          <%= f.input :price, input_html: {style: "background-color: #183D50;" } %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-          <%= f.submit input_html: {style: "background-color: red;"}%>
+      <h2 class=" ">Creation</h2>
+
+      <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Create a personnage
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #213b44;">
+              <div class="modal-header" style="background-color: #213b44;">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Personnage creation!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <%= simple_form_for (@personnage), html: {class: "p-auto m-auto d-flex flex-column h-100 w-100 justify-content-between"} do |f| %>
+                  <div class="d-flex flex-column m-auto mt-5 justify-content-between h-75 w-75 p-3"">
+                    <%= f.input :name, input_html: {style: "background-color: white;" }%>
+                    <%= f.input :category, input_html: {style: "background-color: white;" }, collection: %i[bad good] %>
+                    <%= f.input :role, input_html: {style: "background-color: white;" }, collection: %i[sherif thief marshall cowboy criminal doctor] %>
+                    <%= f.input :price, input_html: {style: "background-color: white;" } %>
+                    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+                    <%= f.submit input_html: {style: "background-color: red;"}%>
+                  </div>
+                <% end %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Create</button>
+              </div>
+            </div>
+          </div>
         </div>
-      <% end %>
 
     </div>
   </div>
   <div class="col-9">
-  
+
     <div class="row display-flex justify-content-around" style="background-color: #0B132B;">
       <div class="waviy">
         <span style="--i:1">M</span>
@@ -49,8 +73,7 @@
     </div>
 
     <div class="text-center display-flex justify-content-around">
-      <h2 class="text-center ">Rented</h2>
-      
+
     <div class="row  text-center display-flex justify-content-around">
       <div class="waviy">
         <span style="--i:1">M</span>
