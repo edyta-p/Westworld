@@ -9,7 +9,7 @@
 
         <% @personnages.each do |personnage| %>
 
-            <div class="col-md-6 col-lg-4">
+            <div class="col col-md-6 col-lg-4">
               <%= link_to personnage_path(personnage) do %>
                 <div class="card mt-4">
                 <% if personnage.photo.present? %>
