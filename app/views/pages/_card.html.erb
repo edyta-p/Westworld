@@ -2,13 +2,16 @@
     <%= link_to personnage_path(personnage) do %>
       <div class="card mb-5 pb-0 flex justify-content-between">
           <% if personnage.photo.present? %>
-            <%= cl_image_tag personnage.photo.key %>
+            <%= cl_image_tag personnage.photo.key, class: "w-100" %>
           <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= personnage.name %></h5>
             <p class="card-text"><%= personnage.role.capitalize %> | <%= personnage.category %></p>
             <h6 class="card-subtitle mb-2"><%= personnage.price %>$</h6>
+            <%= link_to "Delete", personnage_path(personnage), data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete?"}, class: 'btn' %>
+            <%= link_to "Edit", edit_personnage_path(personnage), class: 'btn' %>
           </div>
       </div>
     <% end %>
+
   </div>
