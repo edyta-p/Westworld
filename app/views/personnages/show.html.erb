@@ -6,7 +6,7 @@
       <p><strong><span class="dark-2">Role: </span><%= @personnage.role %> | <span class="dark-2">Category: </span><%= @personnage.category %></strong></p>
     </div>
     <div class="row text-center">
-        <% if @personnage.photo.present? %>
+        <% if @personnage.photo.attached? %>
           <%= cl_image_tag @personnage.photo.key, height: 600, width: 300, crop: :fill %>
         <% end %>
     </div>
