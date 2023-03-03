@@ -17,8 +17,8 @@
                   <% end %>
                   <div class="card-body">
                     <h5 class="card-title"><%= personnage.name %></h5>
-                    <p class="card-text"><%= personnage.role %> | <%= personnage.category %></p>
-                    <h6 class="card-subtitle mb-2"><%= personnage.price %>€</h6>
+                    <p class="card-text"><%= personnage.role.capitalize %> | <%= personnage.category %></p>
+                    <h6 class="card-subtitle mb-2"><%= personnage.price %>$</h6>
                   </div>
                 </div>
               <% end %>
