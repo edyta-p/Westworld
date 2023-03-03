@@ -2,15 +2,15 @@
   <div class="d-flex vh-100 col-3 flex-column">
     <div class="col d-flex flex-column justify-content-between align-items-center" style="background-color: #206D69; max-height: 25%;">
 
-     <h1 class="">Profile</h1>
+     <h1 class="pt-3">Profile</h1>
      <div class="row h-100 justify-content-between">
         <p><%= @user.email %></p>
       </div>
     </div>
-    <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1" style="background-color: #152937;">
+    <div class="d-flex flex-column justify-content-center align-items-center flex-grow-1" style="background-color: #131f25;">
       <h2 class="mt-5 ">Creation</h2>
       <%= simple_form_for (@personnage), html: {class: "p-auto m-auto d-flex flex-column h-100 w-100 justify-content-between"} do |f| %>
-        <div class="d-flex flex-column m-auto mt-5 justify-content-between h-75 w-75 p-3", style="background-color: #0B132B;">
+        <div class="d-flex flex-column m-auto mt-3 justify-content-between h-75 w-75 p-3", style="background-color: ;">
           <%= f.input :name, input_html: {style: "background-color: #183D50;" }%>
           <%= f.input :category, input_html: {style: "background-color: #183D50;" }, collection: %i[bad good] %>
           <%= f.input :role, input_html: {style: "background-color: #183D50;" }, collection: %i[sherif thief marshall cowboy criminal doctor] %>
@@ -23,21 +23,21 @@
     </div>
   </div>
   <div class="col-9">
-    <div class="row display-flex justify-content-around" style="background-color: #0B132B;">
-      <div class="waviy">
+    <div class="row pt-4 display-flex justify-content-around" style="background-color: #152937;">
+      <div class="waviy pb-4">
         <span style="--i:1">M</span>
-        <span style="--i:2">Y</span>
+        <span style="--i:2">y</span>
         <span>   </span>
-        <span style="--i:3">C</span>
-        <span style="--i:4">H</span>
-        <span style="--i:5">A</span>
-        <span style="--i:6">R</span>
-        <span style="--i:7">A</span>
-        <span style="--i:8">C</span>
-        <span style="--i:8">T</span>
-        <span style="--i:8">E</span>
-        <span style="--i:8">R</span>
-        <span style="--i:8">S</span>
+        <span style="--i:3">c</span>
+        <span style="--i:4">h</span>
+        <span style="--i:5">a</span>
+        <span style="--i:6">r</span>
+        <span style="--i:7">a</span>
+        <span style="--i:8">c</span>
+        <span style="--i:8">t</span>
+        <span style="--i:8">e</span>
+        <span style="--i:8">r</span>
+        <span style="--i:8">s</span>
       </div>
 
 
@@ -47,18 +47,18 @@
 
     </div>
     <div class="row  text-center display-flex justify-content-around">
-      <div class="waviy">
+      <div class="waviy pt-4 pb-4">
         <span style="--i:1">M</span>
-        <span style="--i:2">Y</span>
+        <span style="--i:2">y</span>
         <span>   </span>
-        <span style="--i:3">B</span>
-        <span style="--i:4">O</span>
-        <span style="--i:5">O</span>
-        <span style="--i:6">K</span>
-        <span style="--i:7">I</span>
-        <span style="--i:8">N</span>
-        <span style="--i:8">G</span>
-        <span style="--i:8">S</span>
+        <span style="--i:3">b</span>
+        <span style="--i:4">o</span>
+        <span style="--i:5">o</span>
+        <span style="--i:6">k</span>
+        <span style="--i:7">i</span>
+        <span style="--i:8">n</span>
+        <span style="--i:8">g</span>
+        <span style="--i:8">s</span>
       </div>
 
       <% @my_bookings.each do |booking| %>
