@@ -4,10 +4,11 @@
   border-color: $white;
 }
 
-.form-check-input, .form-select {
+.form-check-input, .form-select, .form-control, .form-control:focus, .form-select {
   background-color: $white;
   border-color: $white;
+  color: $dark-2;
 }
 .form-text, .form-select {
-  color: #AAA;
+  color: $dark-2;
 }
