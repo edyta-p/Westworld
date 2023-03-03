@@ -23,14 +23,14 @@
     </div>
   </div>
   <div class="col-9">
-    <div class="row display-flex justify-content-around" style="background-color: #0B132B;">
+    <div class="row h-50 display-flex justify-content-around" style="background-color: #0B132B;">
       <h2 class=" text-center">Owned</h2>
       <% @my_own_personnages.each do |personnage| %>
           <%= render "pages/card", personnage: personnage%>
       <%end%>
     </div>
-    <div class="row  text-center display-flex justify-content-around">
-      <h2 class=" ">Rented</h2>
+    <div class="text-center display-flex justify-content-around">
+      <h2 class="text-center ">Rented</h2>
       <% @my_bookings.each do |booking| %>
        <%= render "pages/card", personnage: booking.personnage%>
        <% end %>
