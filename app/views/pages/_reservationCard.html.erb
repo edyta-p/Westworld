@@ -9,6 +9,7 @@
             <p class="card-text"><%= personnage.role.capitalize%></p>
             <p class="card-text">Booking date:</p>
             <p class="card-text"><strong><%= booking.date %></strong></p>
+            <%= link_to "Delete", reservation_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete?"}, class: 'btn' %>
           </div>
       </div>
     <% end %>
